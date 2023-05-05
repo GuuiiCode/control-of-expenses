@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <GenerateDocumentationFile>False</GenerateDocumentationFile>
+    <DocumentationFile>ControlExpenses.WebApi.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ControlExpenses.Application\ControlExpenses.Application.csproj" />
+    <ProjectReference Include="..\ControlExpenses.Data\ControlExpenses.Data.csproj" />
+    <ProjectReference Include="..\ControlExpenses.Domain\ControlExpenses.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
