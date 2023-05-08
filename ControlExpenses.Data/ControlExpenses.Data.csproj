@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ControlExpenses.Domain\ControlExpenses.Domain.csproj" />
+    <ProjectReference Include="..\CrossCutting.Domain\CrossCutting.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>

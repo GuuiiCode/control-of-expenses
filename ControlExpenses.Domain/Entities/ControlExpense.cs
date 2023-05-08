@@ -1,4 +1,5 @@
 ﻿using ControlExpenses.Domain.Enums;
+
 namespace ControlExpenses.Domain.Entities
 {
     public class ControlExpense : BaseEntity
@@ -20,6 +21,7 @@ namespace ControlExpenses.Domain.Entities
         public TypeEnum Type { get; private set; }
         public DateTime Date { get; private set; }
 
+        //Todo - Implementar fluentValidation
         //private void ValidateFields()
         //{
         //    Check.NotEmptyNotNull(Description, nameof(Description));

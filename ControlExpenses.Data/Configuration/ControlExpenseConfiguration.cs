@@ -1,5 +1,4 @@
 ﻿using ControlExpenses.Domain.Entities;
-using ControlExpenses.Domain.Enums;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -20,9 +19,6 @@ namespace ControlExpenses.Data.Configuration
                   .IsRequired();
 
             entity.Property(x => x.Type)
-                  .HasConversion(
-                    v => v.ToString(),
-                    v => (TypeEnum)Enum.Parse(typeof(TypeEnum), v))
                   .IsRequired();
 
             entity.Property(x => x.Date)

@@ -8,53 +8,53 @@ namespace ControlExpenses.Data.Repositories
     public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : class
     {
         private readonly ControlExpenseContext _context;
-        private DbSet<TEntity> dbSet;
+        private readonly DbSet<TEntity> _dbSet;
 
         public BaseRepository(ControlExpenseContext context)
         {
             _context = context;
-            dbSet = context.Set<TEntity>();
+            _dbSet = context.Set<TEntity>();
         }
 
-        public TEntity GetById(int id)
+        public async Task<TEntity?> GetById(int id)
         {
-            return dbSet.Find(id);
+            return await _dbSet.FindAsync(id);
         }
 
-        public IEnumerable<TEntity> GetAll()
+        public async Task<IEnumerable<TEntity>> GetAll()
         {
-            return dbSet.ToList();
+            return await _dbSet.ToListAsync();
         }
 
-        public IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate)
+        public async Task<IEnumerable<TEntity>> Find(Expression<Func<TEntity, bool>> predicate)
         {
-            return dbSet.Where(predicate);
+            return await _dbSet.Where(predicate).ToListAsync();
         }
 
-        public void Add(TEntity entity)
+        public async Task Add(TEntity entity)
         {
-            dbSet.Add(entity);
+            await _dbSet.AddAsync(entity);
         }
 
-        public void AddRange(IEnumerable<TEntity> entity)
+        public async Task AddRange(IEnumerable<TEntity> entity)
         {
-            dbSet.AddRange(entity);
+            await _dbSet.AddRangeAsync(entity);
         }
 
         public void Update(TEntity entity)
         {
-            dbSet.Attach(entity);
+            _dbSet.Attach(entity);
             _context.Entry(entity).State = EntityState.Modified;
         }
 
         public void Remove(TEntity entity)
         {
-            dbSet.Remove(entity);
+            _dbSet.Remove(entity);
         }
 
         public void RemoveRange(IEnumerable<TEntity> entities)
         {
-            dbSet.RemoveRange(entities);
+            _dbSet.RemoveRange(entities);
         }
     }
 }

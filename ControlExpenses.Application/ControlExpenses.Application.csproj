@@ -7,16 +7,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="11.5.2" />
     <PackageReference Include="MediatR" Version="11.1.0" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\ControlExpenses.Domain\ControlExpenses.Domain.csproj" />
+    <ProjectReference Include="..\CrossCutting.Domain\CrossCutting.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Commands\Teste\CommandHandler\" />
+    <Folder Include="Commands\ControlExpense\Validators\" />
+    <Folder Include="Queries\" />
   </ItemGroup>
 
 </Project>
