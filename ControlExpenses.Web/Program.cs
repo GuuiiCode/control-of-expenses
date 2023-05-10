@@ -1,6 +1,9 @@
+using ControlExpenses.Application.Commands.ControlExpense.CommandHandlers;
 using ControlExpenses.Data.Context;
 using ControlExpenses.Data.Repositories;
 using ControlExpenses.Domain.Interfaces.Repositories;
+using CrossCutting.Domain.Interfaces;
+using CrossCutting.Domain.Models;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,9 +18,13 @@ builder.Services
             option => option.UseSqlServer(builder.Configuration.GetConnectionString("ControlExpenseContext"))
        );
 
+//Todo - implementar o handler genêrico
+builder.Services.AddMediatR(typeof(CreateCommandHandler));
+
 builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
 
-builder.Services.AddMediatR(typeof(Program));
+builder.Services.AddScoped<ICommandBus, CommandBus>();
+
 
 var app = builder.Build();
 

@@ -1,8 +1,7 @@
-﻿using ControlExpenses.Domain.Entities;
+﻿using ControlExpenses.Application.Commands.ControlExpense.Commands;
 using ControlExpenses.Domain.Enums;
-using ControlExpenses.Domain.Interfaces.Repositories;
 using ControlExpenses.Models;
-using MediatR;
+using CrossCutting.Domain.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -10,29 +9,22 @@ namespace ControlExpenses.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IUnitOfWork _unitOfWork;
-        private readonly IMediator _mediator;
+        private readonly ICommandBus _commandBus;
         private readonly ILogger<HomeController> _logger;
 
 
-        public HomeController(IUnitOfWork unitOfWork,
-                              IMediator mediator,
+        public HomeController(ICommandBus commandBus,
                               ILogger<HomeController> logger)
         {
-            _unitOfWork = unitOfWork;
-            _mediator = mediator;
+            _commandBus = commandBus;
             _logger = logger;
         }
 
         public async Task<IActionResult> Index()
         {
-            // var command = new ContaCommand(3);
-            //await  _mediator.Send(command);
+            var testeCommand = new ControlExpenseCommand("description teste command", 32.59m, TypeEnum.Expense, DateTime.Now);
 
-            var teste = new ControlExpense("description", 15.50m, TypeEnum.Revenue, DateTime.Now);
-
-            await _unitOfWork.ControlExpenseRepository.Add(teste);
-            _unitOfWork.Save();
+            await _commandBus.Send(testeCommand);
 
             return View();
         }

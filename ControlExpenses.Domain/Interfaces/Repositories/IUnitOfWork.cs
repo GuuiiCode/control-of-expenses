@@ -3,6 +3,6 @@
     public interface IUnitOfWork : IDisposable
     {
         IControlExpenseRepository ControlExpenseRepository { get; }
-        int Save();
+        Task<int> SaveAsync();
     }
 }

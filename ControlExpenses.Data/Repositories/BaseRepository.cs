@@ -16,7 +16,7 @@ namespace ControlExpenses.Data.Repositories
             _dbSet = context.Set<TEntity>();
         }
 
-        public async Task<TEntity?> GetById(int id)
+        public async Task<TEntity?> GetAsync(int id)
         {
             return await _dbSet.FindAsync(id);
         }
@@ -26,17 +26,17 @@ namespace ControlExpenses.Data.Repositories
             return await _dbSet.ToListAsync();
         }
 
-        public async Task<IEnumerable<TEntity>> Find(Expression<Func<TEntity, bool>> predicate)
+        public async Task<IEnumerable<TEntity>> FindAsync(Expression<Func<TEntity, bool>> predicate)
         {
             return await _dbSet.Where(predicate).ToListAsync();
         }
 
-        public async Task Add(TEntity entity)
+        public async Task AddAsync(TEntity entity)
         {
             await _dbSet.AddAsync(entity);
         }
 
-        public async Task AddRange(IEnumerable<TEntity> entity)
+        public async Task AddRangeAsync(IEnumerable<TEntity> entity)
         {
             await _dbSet.AddRangeAsync(entity);
         }

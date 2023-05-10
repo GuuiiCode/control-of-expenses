@@ -4,13 +4,13 @@
     {
         public CommandResult() { }
 
-        public CommandResult(bool sucess, Guid id)
+        public CommandResult(bool sucess, int id)
         {
             Sucess = sucess;
             Id = id;
         }
 
-        public Guid? Id { get; set; }
+        public int? Id { get; set; }
         public bool Sucess { get; set; }
     }
 }
