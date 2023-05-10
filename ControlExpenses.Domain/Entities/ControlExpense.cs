@@ -21,6 +21,17 @@ namespace ControlExpenses.Domain.Entities
         public TypeEnum Type { get; private set; }
         public DateTime Date { get; private set; }
 
+        public void Change(string description,
+                           decimal value,
+                           TypeEnum type,
+                           DateTime date)
+        {
+            Description = description;
+            Value = value;
+            Type = type;
+            Date = date;
+        }
+
         //Todo - Implementar fluentValidation
         //private void ValidateFields()
         //{

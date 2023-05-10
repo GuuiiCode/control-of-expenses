@@ -5,7 +5,7 @@ using CrossCutting.Domain.Models;
 
 namespace ControlExpenses.Application.Commands.ControlExpense.CommandHandlers
 {
-    public class CreateCommandHandler : ICommandHandler<ControlExpenseCommand>
+    public class CreateCommandHandler : ICommandHandler<CreateControlExpenseCommand>
     {
         private readonly IUnitOfWork _unitOfWork;
 
@@ -14,7 +14,7 @@ namespace ControlExpenses.Application.Commands.ControlExpense.CommandHandlers
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<CommandResult> Handle(ControlExpenseCommand request, CancellationToken cancellationToken)
+        public async Task<CommandResult> Handle(CreateControlExpenseCommand request, CancellationToken cancellationToken)
         {
             var teste = new ControlExpenses.Domain.Entities.ControlExpense(request.Description, request.Value, request.Type, request.Date);
 

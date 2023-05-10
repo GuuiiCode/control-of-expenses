@@ -1,14 +1,30 @@
 ﻿using ControlExpenses.Application.Commands.ControlExpense.Commands;
+using ControlExpenses.Domain.Interfaces.Repositories;
 using CrossCutting.Domain.Interfaces;
 using CrossCutting.Domain.Models;
 
 namespace ControlExpenses.Application.Commands.ControlExpense.CommandHandlers
 {
-    public class DeleteCommandHandler : ICommandHandler<ControlExpenseCommand>
+    public class DeleteCommandHandler : ICommandHandler<DeleteControlExpenseCommand>
     {
-        public Task<CommandResult> Handle(ControlExpenseCommand request, CancellationToken cancellationToken)
+        private readonly IUnitOfWork _unitOfWork;
+
+        public DeleteCommandHandler(IUnitOfWork unitOfWork)
         {
-            throw new NotImplementedException();
+            _unitOfWork = unitOfWork;
+        }
+
+        public async Task<CommandResult> Handle(DeleteControlExpenseCommand request, CancellationToken cancellationToken)
+        {
+            var controlExpense = await _unitOfWork.ControlExpenseRepository.GetAsync(request.Id);
+
+            if (controlExpense == null)
+                return new CommandResult(false, request.Id);
+
+            _unitOfWork.ControlExpenseRepository.Remove(controlExpense);
+            var result = await _unitOfWork.SaveAsync();
+
+            return new CommandResult(result > 0, request.Id);
         }
     }
 }

@@ -22,7 +22,10 @@ namespace ControlExpenses.Web.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var testeCommand = new ControlExpenseCommand("description teste command", 32.59m, TypeEnum.Expense, DateTime.Now);
+            //var testeCommand = new UpdateControlExpenseCommand("rosimeire update", 55m, TypeEnum.Expense, DateTime.Now);
+            //testeCommand.Id = 4;
+
+            var testeCommand = new DeleteControlExpenseCommand(4);
 
             await _commandBus.Send(testeCommand);
 

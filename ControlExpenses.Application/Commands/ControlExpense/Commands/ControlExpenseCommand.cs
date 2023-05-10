@@ -3,7 +3,7 @@ using CrossCutting.Domain.Models;
 
 namespace ControlExpenses.Application.Commands.ControlExpense.Commands
 {
-    public class ControlExpenseCommand : Command
+    public abstract class ControlExpenseCommand : Command
     {
         public ControlExpenseCommand(string description,
                                      decimal value,
@@ -16,7 +16,6 @@ namespace ControlExpenses.Application.Commands.ControlExpense.Commands
             Date = date;
         }
 
-        public int Id { get; set; }
         public string Description { get; private set; }
         public decimal Value { get; private set; }
         public TypeEnum Type { get; private set; }

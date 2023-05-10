@@ -1,4 +1,4 @@
-using ControlExpenses.Application.Commands.ControlExpense.CommandHandlers;
+using ControlExpenses.Application.Commands.ControlExpense.Commands;
 using ControlExpenses.Data.Context;
 using ControlExpenses.Data.Repositories;
 using ControlExpenses.Domain.Interfaces.Repositories;
@@ -19,7 +19,7 @@ builder.Services
        );
 
 //Todo - implementar o handler genêrico
-builder.Services.AddMediatR(typeof(CreateCommandHandler));
+builder.Services.AddMediatR(typeof(CreateControlExpenseCommand));
 
 builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
 
