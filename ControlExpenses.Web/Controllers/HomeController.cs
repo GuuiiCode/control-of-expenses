@@ -24,8 +24,8 @@ namespace ControlExpenses.Web.Controllers
         {
             //var testeCommand = new UpdateControlExpenseCommand("rosimeire update", 55m, TypeEnum.Expense, DateTime.Now);
             //testeCommand.Id = 4;
-            int a = -1;
-            var testeCommand = new DeleteControlExpenseCommand(a);
+
+            var testeCommand = new DeleteControlExpenseCommand(-5);
 
             await _commandBus.Send(testeCommand);
 

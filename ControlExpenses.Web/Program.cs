@@ -1,35 +1,33 @@
-using ControlExpenses.Application.Commands.ControlExpense.Commands;
+using ControlExpenses.Application.Behavior;
+using ControlExpenses.CrossCutting.Interfaces;
+using ControlExpenses.CrossCutting.Models;
 using ControlExpenses.Data.Context;
 using ControlExpenses.Data.Repositories;
 using ControlExpenses.Domain.Interfaces.Repositories;
-using ControlExpenses.CrossCutting.Interfaces;
-using ControlExpenses.CrossCutting.Models;
 using MediatR;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services
-       .AddDbContext<ControlExpenseContext>(
-            option => option.UseSqlServer(builder.Configuration.GetConnectionString("ControlExpenseContext"))
-       );
 
 //builder.Services.AddIdentity<IdentityUser, IdentityRole>()
 //                .AddEntityFrameworkStores<ControlExpenseContext>();
 
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(ControlExpenses.Application.AssemblyReference.Assembly));
 
-//Todo - implementar o handler genêrico
-builder.Services.AddMediatR(typeof(CreateControlExpenseCommand));
+builder.Services.AddScoped(typeof(IPipelineBehavior<,>), typeof(ValidatorBehavior<,>));
 
 builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
 
 builder.Services.AddScoped<ICommandBus, CommandBus>();
 
+builder.Services
+       .AddDbContext<ControlExpenseContext>(
+            option => option.UseSqlServer(builder.Configuration.GetConnectionString("ControlExpenseContext"))
+       );
 
 var app = builder.Build();
 
