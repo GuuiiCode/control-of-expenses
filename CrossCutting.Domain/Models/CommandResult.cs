@@ -1,4 +1,4 @@
-﻿namespace CrossCutting.Domain.Models
+﻿namespace ControlExpenses.CrossCutting.Models
 {
     public class CommandResult
     {

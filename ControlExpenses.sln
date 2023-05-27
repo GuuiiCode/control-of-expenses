@@ -23,7 +23,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ControlExpenses.Domain", "C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ControlExpenses.Data", "ControlExpenses.Data\ControlExpenses.Data.csproj", "{DF9EC832-F974-4CD8-BFF6-1769F4951C4F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossCutting.Domain", "CrossCutting.Domain\CrossCutting.Domain.csproj", "{02327558-DF14-4B5F-8ED5-FF237430C7ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ControlExpenses.CrossCutting", "CrossCutting.Domain\ControlExpenses.CrossCutting.csproj", "{02327558-DF14-4B5F-8ED5-FF237430C7ED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

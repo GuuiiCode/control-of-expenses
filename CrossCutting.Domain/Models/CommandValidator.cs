@@ -1,7 +1,7 @@
-﻿using CrossCutting.Domain.Interfaces;
+﻿using ControlExpenses.CrossCutting.Interfaces;
 using FluentValidation;
 
-namespace CrossCutting.Domain.Models
+namespace ControlExpenses.CrossCutting.Models
 {
     public class CommandValidator<TEntity> : AbstractValidator<TEntity>, ICommandValidator<TEntity> where TEntity : Command
     {

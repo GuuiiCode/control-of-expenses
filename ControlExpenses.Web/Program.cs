@@ -2,9 +2,10 @@ using ControlExpenses.Application.Commands.ControlExpense.Commands;
 using ControlExpenses.Data.Context;
 using ControlExpenses.Data.Repositories;
 using ControlExpenses.Domain.Interfaces.Repositories;
-using CrossCutting.Domain.Interfaces;
-using CrossCutting.Domain.Models;
+using ControlExpenses.CrossCutting.Interfaces;
+using ControlExpenses.CrossCutting.Models;
 using MediatR;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -17,6 +18,10 @@ builder.Services
        .AddDbContext<ControlExpenseContext>(
             option => option.UseSqlServer(builder.Configuration.GetConnectionString("ControlExpenseContext"))
        );
+
+//builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+//                .AddEntityFrameworkStores<ControlExpenseContext>();
+
 
 //Todo - implementar o handler genêrico
 builder.Services.AddMediatR(typeof(CreateControlExpenseCommand));
@@ -41,6 +46,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(

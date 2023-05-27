@@ -1,6 +1,6 @@
-﻿using CrossCutting.Domain.Interfaces;
+﻿using ControlExpenses.CrossCutting.Interfaces;
 
-namespace CrossCutting.Domain.Models
+namespace ControlExpenses.CrossCutting.Models
 {
     public abstract class Command : ICommand
     {

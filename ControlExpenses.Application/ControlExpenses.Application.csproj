@@ -14,11 +14,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ControlExpenses.Domain\ControlExpenses.Domain.csproj" />
-    <ProjectReference Include="..\CrossCutting.Domain\CrossCutting.Domain.csproj" />
+    <ProjectReference Include="..\CrossCutting.Domain\ControlExpenses.CrossCutting.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Commands\ControlExpense\Validators\" />
     <Folder Include="Queries\" />
   </ItemGroup>
 

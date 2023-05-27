@@ -1,7 +1,7 @@
 ﻿using ControlExpenses.Application.Commands.ControlExpense.Commands;
 using ControlExpenses.Domain.Interfaces.Repositories;
-using CrossCutting.Domain.Interfaces;
-using CrossCutting.Domain.Models;
+using ControlExpenses.CrossCutting.Interfaces;
+using ControlExpenses.CrossCutting.Models;
 
 namespace ControlExpenses.Application.Commands.ControlExpense.CommandHandlers
 {

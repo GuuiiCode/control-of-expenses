@@ -1,7 +1,7 @@
 ﻿using ControlExpenses.Application.Commands.ControlExpense.Commands;
 using ControlExpenses.Domain.Enums;
 using ControlExpenses.Models;
-using CrossCutting.Domain.Interfaces;
+using ControlExpenses.CrossCutting.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -24,8 +24,8 @@ namespace ControlExpenses.Web.Controllers
         {
             //var testeCommand = new UpdateControlExpenseCommand("rosimeire update", 55m, TypeEnum.Expense, DateTime.Now);
             //testeCommand.Id = 4;
-
-            var testeCommand = new DeleteControlExpenseCommand(4);
+            int a = -1;
+            var testeCommand = new DeleteControlExpenseCommand(a);
 
             await _commandBus.Send(testeCommand);
 

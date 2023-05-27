@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace CrossCutting.Domain.Interfaces
+namespace ControlExpenses.CrossCutting.Interfaces
 {
     public interface ICommandValidator<TEntity> : IRequest<TEntity> where TEntity : ICommand
     {

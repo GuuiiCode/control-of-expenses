@@ -1,7 +1,7 @@
-﻿using CrossCutting.Domain.Interfaces;
+﻿using ControlExpenses.CrossCutting.Interfaces;
 using MediatR;
 
-namespace CrossCutting.Domain.Models
+namespace ControlExpenses.CrossCutting.Models
 {
     public class CommandBus : ICommandBus
     {

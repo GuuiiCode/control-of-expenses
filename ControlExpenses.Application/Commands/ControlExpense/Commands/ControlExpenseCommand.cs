@@ -1,5 +1,5 @@
 ﻿using ControlExpenses.Domain.Enums;
-using CrossCutting.Domain.Models;
+using ControlExpenses.CrossCutting.Models;
 
 namespace ControlExpenses.Application.Commands.ControlExpense.Commands
 {

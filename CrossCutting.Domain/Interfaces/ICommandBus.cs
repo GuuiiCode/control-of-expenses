@@ -1,6 +1,6 @@
-﻿using CrossCutting.Domain.Models;
+﻿using ControlExpenses.CrossCutting.Models;
 
-namespace CrossCutting.Domain.Interfaces
+namespace ControlExpenses.CrossCutting.Interfaces
 {
     public interface ICommandBus
     {

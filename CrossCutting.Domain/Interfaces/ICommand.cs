@@ -1,7 +1,7 @@
-﻿using CrossCutting.Domain.Models;
+﻿using ControlExpenses.CrossCutting.Models;
 using MediatR;
 
-namespace CrossCutting.Domain.Interfaces
+namespace ControlExpenses.CrossCutting.Interfaces
 {
     public interface ICommand : IRequest<CommandResult>, IBaseRequest
     {
